@@ -7,3 +7,5 @@ config :stonkz, :fb,
 config :stonkz, :services,
   coin_gecko: Stonkz.Mocks.CoinGeckoMock,
   facebook: Stonkz.Mocks.FacebookMock
+
+config :plug, :validate_header_keys_during_test, false
