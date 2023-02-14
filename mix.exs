@@ -25,7 +25,8 @@ defmodule Stonkz.MixProject do
     [
       {:plug_cowboy, "~> 2.5"},
       {:jason, "~> 1.2"},
-      {:httpoison, "~> 2.0"}
+      {:httpoison, "~> 2.0"},
+      {:credo, "~> 1.6", only: [:dev, :test], runtime: false}
     ]
   end
 end
