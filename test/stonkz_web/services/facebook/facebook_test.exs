@@ -27,7 +27,9 @@ defmodule StonkzWeb.Services.FacebookTest do
 
   describe "process_response_body/1" do
     test "returns map response body with atom keys" do
-      payload = Facebook.process_response_body("{\"message\":\"MESSAGE\"}")
+      body = Jason.encode!(%{message: "MESSAGE"})
+
+      payload = Facebook.process_response_body(body)
 
       assert is_map(payload)
       assert payload == %{message: "MESSAGE"}

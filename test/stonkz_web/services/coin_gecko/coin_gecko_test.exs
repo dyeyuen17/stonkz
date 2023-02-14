@@ -27,7 +27,9 @@ defmodule StonkzWeb.Services.CoinGeckoTest do
 
   describe "process_response_body/1" do
     test "returns map response body with atom keys" do
-      payload = CoinGecko.process_response_body("{\"message\":\"MESSAGE\"}")
+      body = Jason.encode!(%{message: "MESSAGE"})
+
+      payload = CoinGecko.process_response_body(body)
 
       assert is_map(payload)
       assert payload == %{message: "MESSAGE"}
