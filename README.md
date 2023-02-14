@@ -19,7 +19,7 @@ deployed at Gigalixir: https://stonkz.gigalixirapp.com/helth_check
 
 - To run locally,
 	1. Put your `VERIFY_TOKEN` and `ACCESS_TOKEN` in docker-compose.yml file
-	2. Run `docker compose up`.
+	2. Run `docker compose up -d`.
 	3. To expose your local server to the internet, you can use services like ngrok.io
 
 ## File Structure
