@@ -146,6 +146,8 @@ defmodule StonkzWeb.Handlers.Events do
   defp handle_history_response(sender_psid, coin_id) do
     case CoinGeckoAPI.get_crypto_history(coin_id) do
       {:ok, prices} ->
+        UserCache.delete(sender_psid)
+
         sender_psid
         |> Payloads.price_history_payload(prices)
         |> send_reply()
