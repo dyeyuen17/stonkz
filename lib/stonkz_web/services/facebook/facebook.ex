@@ -7,7 +7,7 @@ defmodule StonkzWeb.Services.Facebook do
 
   @url "https://graph.facebook.com/v16.0"
 
-  def process_url(url), do: @url <> url
+  def process_request_url(url), do: @url <> url
 
   def process_request_headers(headers) do
     [{"Content-Type", "application/json"} | headers]

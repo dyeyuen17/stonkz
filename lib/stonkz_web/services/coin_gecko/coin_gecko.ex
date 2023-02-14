@@ -7,10 +7,10 @@ defmodule StonkzWeb.Services.CoinGecko do
 
   @url "https://api.coingecko.com/api/v3"
 
-  def process_url(url), do: @url <> url
+  def process_request_url(url), do: @url <> url
 
   def process_request_headers(headers) do
-    [{"Accept", " application/json"}] ++ headers
+    [{"Accept", "application/json"}] ++ headers
   end
 
   def process_request_body(body) do
