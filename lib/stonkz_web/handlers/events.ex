@@ -7,6 +7,14 @@ defmodule StonkzWeb.Handlers.Events do
     FacebookAPI
   }
 
+  @moduledoc """
+    This module handles incoming webhooks and sends the appropriate response to Meta Graph API.
+  """
+
+  @doc """
+    Handles initial user interaction with both with Get Started button and Start Over
+    Sends greeting and prompts Search options to user.
+  """
   @spec handle_entry(map()) :: {:ok, map()} | {:error, map()} | list(map())
   def handle_entry([
         %{
@@ -30,6 +38,8 @@ defmodule StonkzWeb.Handlers.Events do
     |> send_reply()
   end
 
+  # Handles user button interaction from Search options
+  # Sends prompt asking user to enter the coin id or name.
   def handle_entry([
         %{
           "messaging" => [
@@ -53,6 +63,9 @@ defmodule StonkzWeb.Handlers.Events do
     |> send_reply()
   end
 
+  # Handles user action for the Show History button.
+  # Sends a text message showing the last 14 days market price.
+
   def handle_entry([
         %{
           "messaging" => [
@@ -70,6 +83,9 @@ defmodule StonkzWeb.Handlers.Events do
 
     handle_history_response(sender_psid, coin_id)
   end
+
+  # Handles user reply for the coin name or id prompt.
+  # Sends a generic template or a carousel top crypto options with Show History button.
 
   def handle_entry([
         %{
@@ -90,6 +106,9 @@ defmodule StonkzWeb.Handlers.Events do
 
     handle_search_response(sender_psid, coin_name_or_id, user_data[:search_type])
   end
+
+  # Handles user's random messages.
+  # Sends sender action mark as seen.
 
   def handle_entry([
         %{

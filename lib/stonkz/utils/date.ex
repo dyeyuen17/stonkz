@@ -1,4 +1,8 @@
 defmodule Stonkz.Utils.Date do
+  @doc """
+    Utility module for parsing timestamp into more readable date format
+  """
+
   def parse(timestamp) when is_integer(timestamp) do
     {:ok, datetime} = DateTime.from_unix(timestamp, :millisecond)
 

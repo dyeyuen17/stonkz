@@ -2,6 +2,14 @@ defmodule StonkzWeb.Handlers.Payloads do
   import StonkzWeb.Handlers.Templates
   alias Stonkz.Utils.Date
 
+  @moduledoc """
+    This module generates payload needed for message responses.
+  """
+
+  @doc """
+    This function builds the initial response to the user.
+    returns a series of responses from Greeting to Search Options
+  """
   @spec get_started_payload(String.t(), map()) :: list(map())
   def get_started_payload(sender_psid, user_data) do
     name = user_data[:first_name] || "User"
@@ -23,6 +31,10 @@ defmodule StonkzWeb.Handlers.Payloads do
     ]
   end
 
+  @doc """
+    This function builds message prompt asking the user for the coin name or id.
+    returns a simple text message
+  """
   @spec enter_crypto_payload(String.t(), String.t()) :: list(map())
   def enter_crypto_payload(sender_psid, search_type) do
     text_template(
@@ -31,12 +43,20 @@ defmodule StonkzWeb.Handlers.Payloads do
     )
   end
 
+  @doc """
+    This function builds a list of card messages as response to user coin name input.
+    returns 5 generic card template with Show history button
+  """
   @spec crypto_list_payload(String.t(), list(map())) :: map()
   def crypto_list_payload(sender_psid, coins) do
     elements = Enum.map(coins, &generic_elements_payload/1)
     generic_template(sender_psid, elements)
   end
 
+  @doc """
+    This function builds card message as response to user coin id input.
+    returns a single generic card template with Show history button
+  """
   @spec crypto_payload(String.t(), map()) :: map()
   def crypto_payload(sender_psid, coin) do
     element =
@@ -77,6 +97,9 @@ defmodule StonkzWeb.Handlers.Payloads do
     ]
   end
 
+  @doc """
+    This function builds fallback message payload asking the user to search again.
+  """
   @spec crypto_not_found_payload(String.t(), String.t()) :: map()
   def crypto_not_found_payload(sender_psid, coin_name) do
     buttons_template(
@@ -89,6 +112,9 @@ defmodule StonkzWeb.Handlers.Payloads do
     )
   end
 
+  @doc """
+    This function builds fallback message payload asking the user to start over.
+  """
   @spec retry_payload(String.t()) :: map()
   def retry_payload(sender_psid) do
     buttons_template(
@@ -98,11 +124,17 @@ defmodule StonkzWeb.Handlers.Payloads do
     )
   end
 
+  @doc """
+    This function builds sender actions payload for actions sucha as mark as seen or typing.
+  """
   @spec sender_action_payload(String.t(), String.t()) :: map()
   def sender_action_payload(sender_psid, sender_action) do
     sender_action_template(sender_psid, sender_action)
   end
 
+  @doc """
+    This function builds elements used for generic template payload for the coin history result message
+  """
   @spec generic_elements_payload(map()) :: map
   def generic_elements_payload(coin) do
     default_action =
