@@ -20,13 +20,9 @@ defmodule Stonkz.UserCache do
   end
 
   def update(sender_psid, new_data) do
-    case get(sender_psid) do
-      data when not is_nil(data) ->
-        :ets.insert(:user_cache, {sender_psid, Map.merge(data, new_data)})
+    data = get(sender_psid)
 
-      data ->
-        data
-    end
+    :ets.insert(:user_cache, {sender_psid, Map.merge(data, new_data)})
   end
 
   def get(sender_psid) do
