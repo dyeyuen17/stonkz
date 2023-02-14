@@ -3,8 +3,8 @@ defmodule StonkzWeb.Handlers.Events do
   alias StonkzWeb.Handlers.Payloads
 
   alias StonkzWeb.Services.{
-    FacebookAPI,
-    CoinGeckoAPI
+    CoinGeckoAPI,
+    FacebookAPI
   }
 
   @spec handle_entry(map()) :: {:ok, map()} | {:error, map()} | list(map())

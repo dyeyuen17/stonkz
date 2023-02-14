@@ -1,6 +1,6 @@
 import Config
 
-config :stonkz, :fb, 
+config :stonkz, :fb,
   verify_token: "VERIFY_TOKEN_12345",
   access_token: "FB_ACCESS_TOKEN_12345"
 

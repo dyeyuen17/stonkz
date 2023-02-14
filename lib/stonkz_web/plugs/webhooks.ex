@@ -31,8 +31,6 @@ defmodule StonkzWeb.Plug.Webhooks do
   end
 
   defp handle_request(conn, %{"entry" => entry}) do
-    IO.inspect(entry)
-
     Task.start(fn ->
       Events.handle_entry(entry)
     end)
