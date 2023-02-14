@@ -35,7 +35,7 @@ defmodule StonkzWeb.Plug.Webhooks do
       Events.handle_entry(entry)
     end)
 
-    send_resp(conn, 200, "")
+    send_resp(conn, 200, "Success")
   end
 
   defp handle_request(conn, _params) do
