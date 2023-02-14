@@ -14,7 +14,7 @@ defmodule StonkzWeb.Router do
   post("/webhooks", to: StonkzWeb.Plug.Webhooks)
   get("/webhooks", to: StonkzWeb.Plug.Webhooks)
 
-  get "/health_check" do
+  get "/helth_check" do
     send_resp(conn, 200, "GOOD HELTH")
   end
 
