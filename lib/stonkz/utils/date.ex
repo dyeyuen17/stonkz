@@ -7,4 +7,6 @@ defmodule Stonkz.Utils.Date do
 
     "#{month}-#{day}-#{datetime.year}"
   end
+
+  def parse(timestamp), do: timestamp
 end
