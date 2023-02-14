@@ -58,7 +58,9 @@ defmodule StonkzWeb.Handlers.Payloads do
     title = "Here is the price history in the last 14 days\n"
 
     price_history =
-      Enum.reduce(prices, title, fn [timestamp, price], acc ->
+      prices
+      |> Enum.take(14)
+      |> Enum.reduce(title, fn [timestamp, price], acc ->
         acc <> "\n #{Date.parse(timestamp)}: $#{price}"
       end)
 
