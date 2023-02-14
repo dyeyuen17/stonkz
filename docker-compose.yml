@@ -1,0 +1,14 @@
+version: '3.6'
+services:
+  app:
+    build: .
+    volumes:
+      - type: bind
+        source: .
+        target: /app
+    ports:
+      - "4000:4000"
+    command: "mix run --no-halt"
+    environment:
+      - VERIFY_TOKEN=Wuyn0i7P5C/RT4m7l3eGIrLrNHt5PnhMg2ckyjpW4vH5odiZ82yrux1vWsMlOV86
+      - ACCESS_TOKEN=EAASIRhSvi6ABABzKRLJz4tnLaojr6IJ8iyhYuAKcPPudXWryZBox8RTk7ZCGX6FIPMZCSeSaF8mt7c3GGAsgKbaZCUsdgpZCAItPg5U4w2Qeaq1KppA0EwC0LdVKXhHDwExslLoGP35HMWOhITe46Kb7JhyerV9PLyyWzaqCmKY6y6ZB8YwOxxl5lbIHGgyusCwq25FFCFCwZDZD
