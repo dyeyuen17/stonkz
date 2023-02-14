@@ -4,8 +4,7 @@ defmodule StonkzWeb.Plug.Webhooks do
   import Plug.Conn
   alias StonkzWeb.Handlers.Events
 
-  # @verify_token Application.compile_env(:stonkz, :verify_token)
-  @verify_token "Wuyn0i7P5C/RT4m7l3eGIrLrNHt5PnhMg2ckyjpW4vH5odiZ82yrux1vWsMlOV86"
+  @verify_token Application.compile_env(:stonkz, [:fb, :verify_token])
 
   @doc false
   def init(opts), do: opts

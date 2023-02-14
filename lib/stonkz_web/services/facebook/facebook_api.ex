@@ -1,6 +1,6 @@
 defmodule StonkzWeb.Services.FacebookAPI do
-  @access_token "EAASIRhSvi6ABABzKRLJz4tnLaojr6IJ8iyhYuAKcPPudXWryZBox8RTk7ZCGX6FIPMZCSeSaF8mt7c3GGAsgKbaZCUsdgpZCAItPg5U4w2Qeaq1KppA0EwC0LdVKXhHDwExslLoGP35HMWOhITe46Kb7JhyerV9PLyyWzaqCmKY6y6ZB8YwOxxl5lbIHGgyusCwq25FFCFCwZDZD"
-  @facebook StonkzWeb.Services.Facebook
+  @access_token Application.compile_env(:stonkz, [:fb, :access_token])
+  @facebook Application.compile_env(:stonkz, [:services, :facebook])
 
   def send_response([payload | the_rest] = payloads)
       when is_list(payloads) and length(payloads) > 0 do

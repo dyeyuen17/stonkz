@@ -1,5 +1,5 @@
 defmodule StonkzWeb.Services.CoinGeckoAPI do
-  @coin_gecko StonkzWeb.Services.CoinGecko
+  @coin_gecko Application.compile_env(:stonkz, [:services, :coin_gecko])
 
   @doc """
     Search for coins, categories and markets listed on CoinGecko ordered by largest Market Cap first.
