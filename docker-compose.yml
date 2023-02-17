@@ -10,5 +10,5 @@ services:
       - "4000:4000"
     command: "mix run --no-halt"
     environment:
-      - VERIFY_TOKEN=INSERT_YOUR_TOKEN
-      - ACCESS_TOKEN=INSERT_YOUR_TOKEN
+      - VERIFY_TOKEN=INSERT_YOUR_TOKEN_HERE
+      - ACCESS_TOKEN=INSERT_YOUR_TOKEN_HERE
